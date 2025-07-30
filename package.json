@@ -1,0 +1,52 @@
+{
+  "name": "extension-side-panel",
+  "version": "1.0.0",
+  "publisher": "dev",
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -p ./ --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "activationEvents": [
+    "onView:sidePanelView",
+    "onCommand:extension.showSidePanel"
+  ],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "sidePanel",
+          "title": "Side Panel",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "sidePanel": [
+        {
+          "id": "sidePanelView",
+          "name": "Side Panel",
+          "type": "webview"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "extension.showSidePanel",
+        "title": "Show Side Panel"
+      }
+    ]
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "@types/node": "^20.0.0"
+  }
+}
